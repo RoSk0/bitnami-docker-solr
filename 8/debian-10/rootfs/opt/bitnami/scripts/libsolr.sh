@@ -178,7 +178,7 @@ solr_wait_for_zookeeper() {
 solr_create_core() {
     local -r core="${1:?Missing core}"
     local -r exec="curl"
-    local command_args=("--silent")
+    local command_args=("--silent" "--fail")
     local protocol="http"
 
     is_boolean_yes "$SOLR_SSL_ENABLED" && protocol="https" && command_args+=("-k")
